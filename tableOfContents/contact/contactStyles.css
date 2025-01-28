@@ -1,0 +1,42 @@
+/* Set the body background image and styling */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url('../../gallery/images/contact/contactMe.jpg'); /* Replace with your image file path */
+    background-size: 100% 100%;
+    background-position: center; /* Center the image */
+    background-attachment: fixed; /* Keep the background fixed while scrolling */
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+}
+
+/* Style for the image grid */
+#icon-row {
+    display: flex;
+    position: fixed;
+    top: 60%; /* position the icon from top of the page 60%*/
+    left: 5%;
+    justify-content: baseline;
+    gap: 50px; /* Space between icons */
+    padding: 20px;
+    background-color: transparent;
+}
+
+/* Icon link styling */
+.icon-link {
+    text-decoration: none;
+}
+
+.icon {
+    width: 50px; /* Adjust the size of the icons */
+    height: 50px;
+    transition: transform 0.3s, opacity 0.3s;
+    cursor: pointer;
+    border-radius: 30%; /* Optional: Makes the icons circular */
+}
+
+.icon:hover {
+    transform: scale(1.2); /* Enlarges on hover */
+    opacity: 0.8; /* Adds a fading effect */
+}

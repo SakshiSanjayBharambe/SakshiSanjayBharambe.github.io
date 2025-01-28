@@ -1,0 +1,86 @@
+/* General Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Splash Video */
+#splash-video {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Image Container */
+#image-container {
+  position: relative;
+  height: 100vh; /* Full viewport height */
+  background-color: #f4f4f4;
+  overflow: hidden; /* Ensure strips stay within the image container */
+}
+
+#image-container img {
+  width: 100%; /* Full screen width */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+}
+/* Strips Container */
+#strips-container {
+  display: flex;
+  justify-content: space-around; /* Evenly space strips */
+  align-items: center;
+  width: 100%; /* Full width of the image container */
+  height: 85vh; /* Strips container height */
+  background: transparent; /* Transparent background */
+  position: absolute; /* Positioned relative to the image container */
+  bottom: 0; /* Place it at the bottom of the image container */
+  z-index: 2; /* Ensure it stays above other elements */
+}
+
+/* Horizontal Strips */
+.image-strip {
+  width: 15%; /* Each strip width */
+  height: 95%; /* Full height of the strip container */
+  background-size: contain; /* Ensure the background image covers the strip */
+  background-position: center;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Add hover effect */
+}
+
+.image-strip:hover {
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Custom Background Images for Strips */
+.image-strip:nth-child(1) {
+  background-image: url('gallery/images/strips/AboutMe.jpg');
+}
+.image-strip:nth-child(2) {
+  background-image: url('gallery/images/strips/Resume.jpg');
+}
+
+.image-strip:nth-child(3) {
+  background-image: url('gallery/images/strips/Project.jpg');
+}
+
+.image-strip:nth-child(4) {
+  background-image: url('gallery/images/strips/AdditionalWork.jpg');
+}
+.image-strip:nth-child(5) {
+  background-image: url('gallery/images/strips/Contact.jpg');
+}
+
+/* Main Content Styles */
+#main-content {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+
+

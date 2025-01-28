@@ -1,0 +1,65 @@
+/* Reset margin and padding for body and html */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+/* Container for the gallery and navigation buttons */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100vw;  /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Hide overflow so the gallery scrolls horizontally */
+}
+
+/* Style for the image gallery (horizontal scroll) */
+.image-gallery {
+    display: flex;
+    gap: 0;
+    transition: transform 0.5s ease-in-out; /* Smooth scroll transition */
+    height: 100%; /* Ensure gallery stretches to full height */
+    width: 100%; /* Ensure gallery stretches to full width */
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Enable snap scrolling */
+}
+
+/* Style for images to cover the full space */
+.image-gallery img {
+    height: 100%; /* Fill full height */
+    width: 100%; /* Take up full viewport width */
+    object-fit: fill; /* Ensure images cover the area without distortion */
+    flex-shrink: 0; /* Prevent images from shrinking */
+    scroll-snap-align: center; /* Align images at the center when scrolling */
+}
+
+/* Style for the navigation arrows */
+.arrow {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 30px;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.left {
+    left: 10px;
+}
+
+.right {
+    right: 10px;
+}
+
+.arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
