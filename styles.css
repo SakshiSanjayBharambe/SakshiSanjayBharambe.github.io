@@ -58,21 +58,27 @@ body, html {
 
 /* Custom Background Images for Strips */
 .image-strip:nth-child(1) {
-  background-image: url('gallery/images/strips/AboutMe.jpg');
+  background-image: url('gallery/images/strips/Aboutme.jpg');
+  background-repeat: no-repeat;
 }
 .image-strip:nth-child(2) {
   background-image: url('gallery/images/strips/Resume.jpg');
+  background-repeat: no-repeat;
 }
 
 .image-strip:nth-child(3) {
   background-image: url('gallery/images/strips/Project.jpg');
+  background-repeat: no-repeat;
 }
 
 .image-strip:nth-child(4) {
   background-image: url('gallery/images/strips/AdditionalWork.jpg');
+  background-repeat: no-repeat;
 }
+
 .image-strip:nth-child(5) {
   background-image: url('gallery/images/strips/Contact.jpg');
+  background-repeat: no-repeat;
 }
 
 /* Main Content Styles */

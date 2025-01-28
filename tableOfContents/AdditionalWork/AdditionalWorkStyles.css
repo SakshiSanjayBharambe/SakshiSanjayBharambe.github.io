@@ -4,41 +4,41 @@ body, html {
     padding: 0;
     height: 100%;
     width: 100%;
-}
-
-/* Container for the gallery and navigation buttons */
-.container {
+    overflow: hidden; /* Prevent unwanted scrolling */
+  }
+  
+  /* Container for the gallery and navigation buttons */
+  .container {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     width: 100vw;  /* Full viewport width */
     height: 100vh; /* Full viewport height */
-    overflow: hidden; /* Hide overflow so the gallery scrolls horizontally */
-}
-
-/* Style for the image gallery (horizontal scroll) */
-.image-gallery {
+    overflow: hidden; /* Hide overflowing content */
+  }
+  
+  /* Style for the image gallery (horizontal scroll) */
+  .image-gallery {
     display: flex;
-    gap: 0;
-    transition: transform 0.5s ease-in-out; /* Smooth scroll transition */
-    height: 100%; /* Ensure gallery stretches to full height */
-    width: 100%; /* Ensure gallery stretches to full width */
+    height: 100%; /* Full viewport height */
+    width: max-content; /* Adjust width to fit all images */
     overflow-x: scroll; /* Enable horizontal scrolling */
-    scroll-snap-type: x mandatory; /* Enable snap scrolling */
-}
-
-/* Style for images to cover the full space */
-.image-gallery img {
-    height: 100%; /* Fill full height */
-    width: 100%; /* Take up full viewport width */
-    object-fit: fill; /* Ensure images cover the area without distortion */
-    flex-shrink: 0; /* Prevent images from shrinking */
-    scroll-snap-align: center; /* Align images at the center when scrolling */
-}
-
-/* Style for the navigation arrows */
-.arrow {
+    scroll-snap-type: x mandatory; /* Ensure the images snap to the left edge */
+    scroll-behavior: smooth; /* Smooth scroll transition */
+  }
+  
+  /* Images to fill the viewport without disappearing parts */
+  .image-gallery img {
+    height: 100%; /* Stretch to full viewport height */
+    width: 100vw;  /* Take full viewport width */
+    object-fit: fill; /* Ensure images cover the space without distortion */
+    flex-shrink: 0; /* Prevent shrinking */
+    scroll-snap-align: start; /* Ensure each image snaps to the left edge */
+  }
+  
+  /* Style for the navigation arrows */
+  .arrow {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     font-size: 30px;
@@ -50,16 +50,18 @@ body, html {
     transform: translateY(-50%);
     cursor: pointer;
     z-index: 10;
-}
-
-.left {
+    display: none; /* Hide the arrows initially */
+  }
+  
+  .left {
     left: 10px;
-}
-
-.right {
+  }
+  
+  .right {
     right: 10px;
-}
-
-.arrow:hover {
+  }
+  
+  .arrow:hover {
     background-color: rgba(0, 0, 0, 0.8);
-}
+  }
+  
