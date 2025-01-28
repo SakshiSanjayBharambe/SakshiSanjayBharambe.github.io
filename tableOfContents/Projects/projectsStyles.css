@@ -13,7 +13,7 @@ body, html {
   align-items: center;
   justify-content: center;
   position: relative;
-  width: 100vw;  /* Full viewport width */
+  width: 100%;  /* Full available width */
   height: 100vh; /* Full viewport height */
   overflow: hidden; /* Hide overflowing content */
 }
@@ -22,17 +22,18 @@ body, html {
 .image-gallery {
   display: flex;
   height: 100%; /* Full viewport height */
-  width: max-content; /* Adjust width to fit all images */
-  overflow-x: scroll; /* Enable horizontal scrolling */
-  scroll-snap-type: x mandatory; /* Ensure the images snap to the left edge */
+  width: 100%; /* Full width of container */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  scroll-snap-type: x mandatory; /* Ensure images snap to the left edge */
   scroll-behavior: smooth; /* Smooth scroll transition */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS devices */
 }
 
-/* Images to fill the viewport without disappearing parts */
+/* Images to stretch only along the width while maintaining aspect ratio */
 .image-gallery img {
-  height: 100%; /* Stretch to full viewport height */
-  width: 100vw;  /* Take full viewport width */
-  object-fit: fill; /* Ensure images cover the space without distortion */
+  width: 100%; /* Stretch to full viewport width */
+  height: auto; /* Adjust height automatically to maintain aspect ratio */
+  object-fit: fill; /* Ensure image does not stretch or distort */
   flex-shrink: 0; /* Prevent shrinking */
   scroll-snap-align: start; /* Ensure each image snaps to the left edge */
 }
@@ -53,6 +54,7 @@ body, html {
   display: none; /* Hide the arrows initially */
 }
 
+/* Positioning for left and right arrows */
 .left {
   left: 10px;
 }
@@ -61,6 +63,33 @@ body, html {
   right: 10px;
 }
 
+/* Arrow hover effect */
 .arrow:hover {
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Show arrows on hover */
+.container:hover .arrow {
+  display: block;
+}
+
+/* Responsive design for smaller devices */
+@media (max-width: 768px) {
+  .image-gallery img {
+    width: 100vw; /* Ensure the image fills the screen width */
+    height: auto; /* Automatically adjust height */
+  }
+
+  .arrow {
+    font-size: 24px; /* Smaller arrows for smaller screens */
+    padding: 8px;
+  }
+}
+
+/* Further adjustments for very small screens (e.g., phones) */
+@media (max-width: 480px) {
+  .arrow {
+    font-size: 20px; /* Even smaller arrows for small phones */
+    padding: 6px;
+  }
 }

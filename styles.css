@@ -5,6 +5,7 @@ body, html {
   height: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  font-family: Arial, sans-serif; /* Default font for consistency */
 }
 
 /* Splash Video */
@@ -14,6 +15,7 @@ body, html {
   height: 100vh; /* Full viewport height */
   object-fit: cover;
   cursor: pointer;
+  background-color: #000; /* Fallback for devices that don't support videos */
 }
 
 /* Image Container */
@@ -29,27 +31,32 @@ body, html {
   height: auto; /* Maintain aspect ratio */
   display: block;
 }
+
 /* Strips Container */
 #strips-container {
   display: flex;
   justify-content: space-around; /* Evenly space strips */
   align-items: center;
+  flex-wrap: wrap; /* Wrap strips on smaller screens */
   width: 100%; /* Full width of the image container */
-  height: 85vh; /* Strips container height */
+  height: 80vh; /* Strips container height */
   background: transparent; /* Transparent background */
   position: absolute; /* Positioned relative to the image container */
   bottom: 0; /* Place it at the bottom of the image container */
   z-index: 2; /* Ensure it stays above other elements */
+  padding: 10px; /* Add spacing for small devices */
 }
 
 /* Horizontal Strips */
 .image-strip {
   width: 15%; /* Each strip width */
-  height: 95%; /* Full height of the strip container */
+  height: 100%; /* Full height of the strip container */
   background-size: contain; /* Ensure the background image covers the strip */
   background-position: center;
+  background-repeat: no-repeat;
   cursor: pointer;
   transition: transform 0.3s ease; /* Add hover effect */
+  border-radius: 8px; /* Rounded corners for aesthetics */
 }
 
 .image-strip:hover {
@@ -59,26 +66,18 @@ body, html {
 /* Custom Background Images for Strips */
 .image-strip:nth-child(1) {
   background-image: url('gallery/images/strips/Aboutme.jpg');
-  background-repeat: no-repeat;
 }
 .image-strip:nth-child(2) {
   background-image: url('gallery/images/strips/Resume.jpg');
-  background-repeat: no-repeat;
 }
-
 .image-strip:nth-child(3) {
   background-image: url('gallery/images/strips/Project.jpg');
-  background-repeat: no-repeat;
 }
-
 .image-strip:nth-child(4) {
   background-image: url('gallery/images/strips/AdditionalWork.jpg');
-  background-repeat: no-repeat;
 }
-
 .image-strip:nth-child(5) {
   background-image: url('gallery/images/strips/Contact.jpg');
-  background-repeat: no-repeat;
 }
 
 /* Main Content Styles */
@@ -88,5 +87,42 @@ body, html {
   height: 100%;
 }
 
+/* Responsive Design */
 
+/* For Tablets */
+@media (max-width: 1024px) {
+  #strips-container {
+    flex-direction: column; /* Stack strips vertically */
+    height: auto; /* Let the height adjust to content */
+  }
 
+  .image-strip {
+    width: 70%; /* Make strips larger for better interaction */
+    height: 15%; /* Adjust height for stacking */
+    margin: 10px auto; /* Center strips with margin */
+  }
+}
+
+/* For Mobile Phones */
+@media (max-width: 768px) {
+  #image-container img {
+    display: none; /* Hide the image to save space */
+  }
+
+  .image-strip {
+    width: 80%; /* Larger width for mobile devices */
+    height: 12%; /* Adjust height for mobile view */
+  }
+}
+
+/* For Small Mobile Devices */
+@media (max-width: 480px) {
+  .image-strip {
+    width: 90%; /* Almost full width on small devices */
+    height: 10%; /* Shorter height */
+  }
+
+  #strips-container {
+    padding: 5px; /* Less padding for smaller screens */
+  }
+}
