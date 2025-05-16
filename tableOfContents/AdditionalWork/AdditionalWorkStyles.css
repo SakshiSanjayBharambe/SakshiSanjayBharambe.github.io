@@ -1,0 +1,67 @@
+/* Reset margin and padding for body and html */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Prevent unwanted scrolling */
+  }
+  
+  /* Container for the gallery and navigation buttons */
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100vw;  /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Hide overflowing content */
+  }
+  
+  /* Style for the image gallery (horizontal scroll) */
+  .image-gallery {
+    display: flex;
+    height: 100%; /* Full viewport height */
+    width: max-content; /* Adjust width to fit all images */
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Ensure the images snap to the left edge */
+    scroll-behavior: smooth; /* Smooth scroll transition */
+  }
+  
+  /* Images to fill the viewport without disappearing parts */
+  .image-gallery img {
+    height: 100%; /* Stretch to full viewport height */
+    width: 100vw;  /* Take full viewport width */
+    object-fit: fill; /* Ensure images cover the space without distortion */
+    flex-shrink: 0; /* Prevent shrinking */
+    scroll-snap-align: start; /* Ensure each image snaps to the left edge */
+  }
+  
+  /* Style for the navigation arrows */
+  .arrow {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 30px;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+    display: none; /* Hide the arrows initially */
+  }
+  
+  .left {
+    left: 10px;
+  }
+  
+  .right {
+    right: 10px;
+  }
+  
+  .arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  

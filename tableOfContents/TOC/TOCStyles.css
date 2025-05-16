@@ -1,0 +1,161 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    font-family: Arial, sans-serif; /* Default font for consistency */
+  }
+  
+  /* Image Container */
+  #image-container {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    width: 100%;
+    min-height: 500px; /* Minimum height to prevent strips from being too small */
+    background-color: #f4f4f4;
+    overflow: visible; /* Ensure strips stay within the image container */
+  }
+  
+  #image-container img {
+    width: 100vw; /* Full screen width */
+    height: 100%; /* Full height */
+    object-fit: fill; /* Maintain aspect ratio while covering container */
+    display: block;
+  }
+  
+  /* Strips Container */
+  #strips-container {
+    display: flex;
+    justify-content: space-around; /* Evenly space strips */
+    align-items: center;
+    flex-wrap: wrap; /* Wrap strips on smaller screens */
+    width: 100%; /* Full width of the image container */
+    height: 80vh; /* Strips container height */
+    min-height: 200px; /* Minimum height for strips container */
+    background: transparent; /* Transparent background */
+    position: absolute; /* Positioned relative to the image container */
+    bottom: 0; /* Place it at the bottom of the image container */
+    z-index: 2; /* Ensure it stays above other elements */
+    padding: 10px; /* Add spacing for small devices */
+    box-sizing: border-box; /* Include padding in width calculation */
+  }
+  
+  /* Horizontal Strips */
+  .image-strip {
+    width: 15%; /* Each strip width */
+    min-width: 100px; /* Minimum width for very small screens */
+    height: 95%; /* Height relative to container */
+    min-height: 200px; /* Minimum height for strips */
+    background-size: contain; /* Cover the entire strip */
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Add hover effect */
+    border-radius: 8px; /* Rounded corners for aesthetics */
+    margin: 5px; /* Add margin between strips */
+  }
+  
+  .image-strip:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    opacity: 0.9; /* Slight transparency on hover */
+  }
+  
+  /* Custom Background Images for Strips */
+  .image-strip:nth-child(1) {
+    background-image: url('../../gallery/images/strips/Aboutme.jpg');
+  }
+  .image-strip:nth-child(2) {
+    background-image: url('../../gallery/images/strips/Resume.jpg');
+  }
+  .image-strip:nth-child(3) {
+    background-image: url('../../gallery/images/strips/Project.jpg');
+  }
+  .image-strip:nth-child(4) {
+    background-image: url('../../gallery/images/strips/AdditionalWork.jpg');
+  }
+  .image-strip:nth-child(5) {
+    background-image: url('../../gallery/images/strips/Contact.jpg');
+  }
+  
+  /* Responsive Design */
+  
+  /* For Large Tablets and Small Laptops */
+  @media (max-width: 1024px) {
+    .image-strip {
+      width: 18%; /* Slightly wider strips */
+      height: 70%; /* Slightly shorter */
+    }
+  }
+  
+  /* For Tablets */
+  @media (max-width: 768px) {
+    #strips-container {
+      height: 60vh; /* Reduce height of strips container */
+      flex-wrap: nowrap; /* Prevent wrapping to maintain horizontal layout */
+      overflow-x: auto; /* Enable horizontal scrolling if needed */
+      justify-content: flex-start; /* Align strips to start */
+    }
+  
+    .image-strip {
+      width: 30%; /* Wider strips for tablets */
+      height: 90%; /* Taller strips */
+      flex: 0 0 auto; /* Prevent shrinking */
+      margin: 0 10px; /* Add horizontal margin */
+    }
+    
+    #image-container {
+      min-height: 600px; /* Increase minimum height */
+    }
+  }
+  
+  /* For Large Mobile Phones */
+  @media (max-width: 600px) {
+    #strips-container {
+      height: 80vh; /* Further reduce height */
+      padding: 5px; /* Reduce padding */
+    }
+  
+    .image-strip {
+      width: 28%; /* Slightly wider */
+      height: 85%; /* Slightly shorter */
+      min-width: 120px; /* Increase minimum width */
+    }
+  }
+  
+  /* For Small Mobile Devices */
+  @media (max-width: 480px) {
+    #strips-container {
+      flex-direction: column; /* Stack strips vertically */
+      height: auto; /* Auto height based on content */
+      padding: 20px 10px; /* More vertical padding */
+      overflow-x: hidden; /* Disable horizontal scrolling */
+      overflow-y: auto; /* Enable vertical scrolling if needed */
+      justify-content: center; /* Center strips */
+    }
+  
+    .image-strip {
+      width: 80%; /* Almost full width */
+      height: 80px; /* Fixed height for mobile */
+      min-height: 80px; /* Fixed minimum height */
+      margin: 5px 0; /* Vertical margin only */
+    }
+    
+    #image-container {
+      min-height: 700px; /* Increase minimum height for mobile */
+    }
+  }
+  
+  /* For Very Small Mobile Devices */
+  @media (max-width: 360px) {
+    .image-strip {
+      width: 90%; /* Full width with some margin */
+      height: 70px; /* Slightly shorter */
+      min-height: 70px;
+    }
+    
+    #strips-container {
+      padding: 10px 5px; /* Less padding */
+    }
+  }

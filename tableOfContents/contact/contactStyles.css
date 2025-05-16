@@ -1,0 +1,71 @@
+/* Set the body background image and styling */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url('../../gallery/images/contact/contactMe.jpg'); /* Replace with your image file path */
+    background-size: cover; /* Ensure the background image covers the entire screen */
+    background-position: center; /* Center the image */
+    background-attachment: fixed; /* Keep the background fixed while scrolling */
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+}
+
+/* Style for the image grid */
+#icon-row {
+    display: flex;
+    position: fixed;
+    top: 60%; /* position the icon from top of the page */
+    left: 5%;
+    justify-content: baseline;
+    gap: 5vw; /* Space between icons (responsive to screen width) */
+    padding: 2vh; /* Adjust padding relative to screen height */
+    background-color: transparent;
+    z-index: 10; /* Ensure icons are on top of the background */
+}
+
+/* Icon link styling */
+.icon-link {
+    text-decoration: none;
+}
+
+.icon {
+    width: 3vw; /* Icon width responsive to screen width */
+    height: 3vw; /* Icon height responsive to screen width */
+    transition: transform 0.3s, opacity 0.3s;
+    cursor: pointer;
+    border-radius: 30%; /* Optional: Makes the icons circular */
+}
+
+/* Hover effect for icons */
+.icon:hover {
+    transform: scale(1.2); /* Enlarges on hover */
+    opacity: 0.8; /* Adds a fading effect */
+}
+
+/* Media queries for smaller devices */
+@media (max-width: 768px) {
+    #icon-row {
+        top: 50%; /* Adjust icon positioning on smaller screens */
+        left: 3%;
+        gap: 4vw; /* Adjust space between icons for smaller screens */
+    }
+
+    .icon {
+        width: 12vw; /* Increase icon size on smaller screens */
+        height: 12vw; /* Increase icon size on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    #icon-row {
+        top: 45%; /* Adjust further for very small screens */
+        left: 2%;
+        gap: 6vw; /* More space between icons */
+    }
+
+    .icon {
+        width: 15vw; /* Even larger icons on very small screens */
+        height: 15vw; /* Even larger icons on very small screens */
+    }
+}
